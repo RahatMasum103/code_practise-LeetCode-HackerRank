@@ -17,8 +17,7 @@ class Solution {
             int num = A[i];
             result[i] = (int) Math.pow(num,2);
         }
-        Arrays.sort(result);
-        
+        Arrays.sort(result);        
         System.out.println(Arrays.toString(result));
         return result;
     }
