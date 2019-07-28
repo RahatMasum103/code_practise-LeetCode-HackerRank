@@ -17,22 +17,26 @@ Assume we are dealing with an environment which could only store integers within
 
 /************************************************************/
 class Solution {
-    public int reverse(int x) {
-        if (x > Integer.MAX_VALUE) {
-            return 0;
-         //throw new ArithmeticException("Overflow!");
-      }
-        else{
-            int reverseNumber=0;
+    public int reverse(int x) {       
+        
+        int reverseNumber=0;
+        int overflowNumber=0;
         while(x !=0)
         {
             int lastDigit = x%10;
             reverseNumber = (reverseNumber * 10) + lastDigit;
-            x/=10;
-        }
-        return reverseNumber;
             
-        }
+            if((reverseNumber-lastDigit)/10 !=overflowNumber)
+            {
+                return 0;
+            }
+            overflowNumber = reverseNumber;
+            
+            x/=10;
+        }        
+       
+        return reverseNumber; 
+       
         
     }
 }
