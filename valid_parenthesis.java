@@ -48,7 +48,10 @@ class Solution {
                     {
                         return false;
                     }                    
-                }                
+                }
+                else{
+                    stk.push('#');
+                }
             }            
         }       
         return stk.isEmpty();
