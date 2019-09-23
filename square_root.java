@@ -21,18 +21,45 @@ Explanation: The square root of 8 is 2.82842..., and since
 class Solution {
     public int mySqrt(int x) {
         
-        if(x ==0 || x== 1) return x;
+        if(x ==0 || x== 1) return x;        
         
-        int i=1;
         int result = 0;
         
+        // Binary Search approach
+        
+        int start = 0, end = x;
+        
+        while(start <= end)
+        {
+            //int mid = (start+end) /2;
+            
+            int mid = ((end - start) >> 1) + start;
+            int v = x / mid;
+            
+            if(v == mid) //perfect square
+                return v;
+            
+            else if(mid > v)
+            {
+                end = mid-1;
+                result = end;
+            }
+            else{
+                start = mid+1;
+                
+            }
+        }
+        return result;
+        
+        /* Naive approach 
+        int i=1;
         while(result <= x)
         {
-            ++i;
+            i++;
             result = i*i;
-            System.out.println("debug "+ result+ " "+i);            
+            //System.out.println("debug "+ result+ " "+i);            
         }        
         return i-1;
-        
+        */
     }
 }
