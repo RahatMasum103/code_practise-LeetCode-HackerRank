@@ -15,8 +15,10 @@ Output: 5
 class Solution {
     public int lengthOfLastWord(String s) {
         
+        
+        s=s.trim();
         int len = s.length();
-        int max=0;
+        //int max=0;
         int count =0;
         for(int i=0; i<len;i++)
         {            
@@ -24,8 +26,8 @@ class Solution {
             else{
                 count=0;
             }
-            if(max<count) max =count;
+            //if(max<count) max =count;
         }
-        return max;
+        return count;
     }
 }
