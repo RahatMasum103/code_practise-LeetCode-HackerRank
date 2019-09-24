@@ -36,3 +36,10 @@ Enter your query here.
 */
 Select ROUND(LONG_W,4) from STATION 
 WHERE LAT_N = (SELECT min(LAT_N) FROM STATION WHERE LAT_N>38.7780);
+
+
+/*
+Enter your query here.
+*/
+
+SELECT ROUND(abs((MIN(LAT_N) - MAX(LAT_N)))+ABS((MIN(LONG_W)-MAX(LONG_W))),4) FROM STATION;
