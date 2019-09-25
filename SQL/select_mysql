@@ -6,3 +6,8 @@ where c.CountryCode = cnty.Code and cnty.CONTINENT = 'Asia';
 
 select c.name from city c, country cnty
 where c.CountryCode = cnty.Code and cnty.CONTINENT = 'Africa';
+
+
+
+
+select country.continent, round(avg(city.population)-0.5) from country inner join city on country.code=city.countrycode group by country.continent;
