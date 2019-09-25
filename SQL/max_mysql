@@ -43,3 +43,10 @@ Enter your query here.
 */
 
 SELECT ROUND(abs((MIN(LAT_N) - MAX(LAT_N)))+ABS((MIN(LONG_W)-MAX(LONG_W))),4) FROM STATION;
+
+
+/*
+Enter your query here.
+*/
+
+select ROUND(pow(pow(abs(Max(Lat_n)-min(Lat_n)),2)+pow(abs(Max(long_w)-min(long_w)),2),1/2),4) from station;
