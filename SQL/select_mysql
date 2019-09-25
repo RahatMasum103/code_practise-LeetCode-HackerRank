@@ -2,3 +2,7 @@
 
 select sum(c.population) from city c, country cnty
 where c.CountryCode = cnty.Code and cnty.CONTINENT = 'Asia';
+
+
+select c.name from city c, country cnty
+where c.CountryCode = cnty.Code and cnty.CONTINENT = 'Africa';
