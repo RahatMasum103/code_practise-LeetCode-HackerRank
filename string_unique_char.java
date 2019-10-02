@@ -37,7 +37,8 @@ class Solution {
             }
         }
         
-        return idx;
+        if(idx>len) return -1;
+        else return idx;
         
         
     }
