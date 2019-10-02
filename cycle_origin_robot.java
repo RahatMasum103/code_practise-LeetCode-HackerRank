@@ -27,24 +27,39 @@ class Solution {
     public boolean judgeCircle(String moves) {
         int len = moves.length();
         
+        int ud =0;
+        int lr =0;
+        
         if(len<2) return false;
         
-        moves = moves.toUpperCase();
+        for(int i=0; i< len; i++)
+        {
+            char c = moves.charAt(i);
+            if(c == 'U') ud++;
+            else if(c == 'D') ud--;
+            else if(c == 'L') lr++;
+            else if(c == 'R') lr--;
+        }
+        return (ud==0 && lr ==0) ;
+        //moves = moves.toUpperCase();
         
-        HashMap<Character,Character> hmapMove = new HashMap<>();
+        //HashMap<Character,Character> hmapMove = new HashMap<>();
         
-        HashMap<Character,Integer> hmapCount = new HashMap<>();
         
+        //HashMap<Character,Integer> hmapCount = new HashMap<>();
+        
+        /*
         hmapMove.put('U','D');
         hmapMove.put('R','L');
         hmapMove.put('D','U');
         hmapMove.put('L','R');
         
+        /*
         char start = moves.charAt(0);
         char end = moves.charAt(len-1);
         if(hmapMove.get(start) != end) return false;
-        
-        
+        */
+/*
         for(int i=0; i<len;i++)
         {
             char c = moves.charAt(i);
@@ -56,11 +71,25 @@ class Solution {
                 hmapCount.put(c,1);
             }            
         }
+        for(char c:hmapCount.keySet())
+        {
+            System.out.println(c +" "+ hmapCount.get(c));
+        }
+        //System.out.println(hmapCount.get('D') +" "+ hmapCount.get('U')+ " " +hmapCount.get('L') +" " + hmapCount.get('R'));
         
-        if(hmapCount.get('D') != hmapCount.get('U') || hmapCount.get('L') != hmapCount.get('R'))
-            return false;
+        
+        if((hmapCount.get('D') == hmapCount.get('U')) && (hmapCount.get('L') == hmapCount.get('R')))
+        {
+             return true;
+        }
+           
         else 
-            return true;
+        {
+            //System.out.println("debug");
+            return false;
+        }
+        */
+       
         
  
     }
