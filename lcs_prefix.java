@@ -17,11 +17,36 @@ Explanation: There is no common prefix among the input strings.
 class Solution {
     public String longestCommonPrefix(String[] strs) {
         int size = strs.length;
-
+        
+        String lcp = "";
+        
+        if(size == 0) return lcp;
+        
+        int pos = 0;
+        String start = strs[0];
+        for (char c: start.toCharArray())
+        {
+            for(int i=1; i<size; i++)
+            {
+                if(pos >= strs[i].length() || c != strs[i].charAt(pos) )
+                {
+                    return lcp;
+                }                
+            }
+            lcp += c;
+            pos++;
+        }
+        return lcp;
+        
+        
+        
+/*
         if(size == 0) return "";
         
         String lcp = strs[0];
         System.out.println("debug0... "+lcp);
+        
+        
         for(int i=1; i<size; i++)
         {
             //System.out.println("debug... "+strs[i].indexOf(lcp));
