@@ -17,6 +17,35 @@ Note:
 0 <= A[i] <= 5000
 
 /*******************************************/
+ /* O(n) with one pass */
+ 
+ class Solution {
+    public int[] sortArrayByParity(int[] A) {
+        int len = A.length;
+        int [] result = new int[len];
+        
+        int i=0;
+        int j= len-1;
+        int m=0;
+        
+        while(i<len){
+            if(A[i] %2 ==0) 
+            {
+                result[m] = A[i]; 
+                m++;
+            }
+            else 
+            {
+                result[j] = A[i];
+                j--;
+            }
+            i++;
+            
+        }       
+        return result;
+    }
+} 
+ 
 /* BRUTE FORCE */
 
 class Solution {
