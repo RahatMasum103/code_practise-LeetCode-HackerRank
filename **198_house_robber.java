@@ -20,8 +20,32 @@ Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (m
 
 class Solution {
     public int rob(int[] nums) {
+       
         
-        int max = 0;
+        if(nums.length == 0) 
+            return 0;
+        
+        int rob =0, skip =0;
+        
+        for(int i=0; i<nums.length; i++)
+        {
+            int temp = rob;
+            rob = Math.max(skip+nums[i], rob);
+            skip = temp;
+            
+        }
+        return rob;
+       /*
+        if(nums.length == 0)
+            return 0;
+        
+        else if(nums.length == 1)
+            return nums[0];
+        
+        else if(nums.length == 2)
+            return Math.max(nums[0],nums[1]);
+        
+        int max =nums[1];
         
         for(int i=2;i<nums.length; i++)
         {
@@ -31,6 +55,7 @@ class Solution {
             
         }
         
-        return max;
+        return max;*/
+        
     }
 }
