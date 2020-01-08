@@ -41,12 +41,22 @@ public class Solution {
         Scanner scan = new Scanner(System.in);
         String s = scan.nextLine();
         // Write your code here.
-        String[] arrOfStr = s.split("[ !,?._'@]+"); 
-        System.out.println(arrOfStr.length);
-        for(int i=0; i<arrOfStr.length; i++)
+        s= s.trim();
+        int len = s.length();          
+
+        if(len == 0)
         {
-            System.out.println(arrOfStr[i]);
+            System.out.println(0);
         }
+        else if(len < 400000)
+        {
+            String[] arrOfStr = s.split("[ !,?._'@]+"); 
+            System.out.println(arrOfStr.length);
+            for(int i=0; i<arrOfStr.length; i++)
+            {
+                System.out.println(arrOfStr[i]);
+            }
+        }        
         scan.close();
     }
 }
