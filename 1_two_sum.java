@@ -13,7 +13,7 @@ return [0, 1].
 
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        
+        /*
         int len = nums.length;
         int []index = new int[2];
         
@@ -33,5 +33,24 @@ class Solution {
             }
         }
         return index;
+        */
+        /* O(n) solution */
+        HashMap<Integer,Integer> hmap = new HashMap<>();
+        List<Integer> result = new ArrayList<>();
+        
+        for(int i=0; i<nums.length; i++)
+        {
+            if(hmap.containsKey(target - nums[i]))
+            {
+                result.add(hmap.get(target - nums[i]));
+                result.add(i);
+            }
+            else{
+                hmap.put(nums[i], i);
+            }            
+        }              
+       
+        int [] arr = result.stream().mapToInt(Integer::intValue).toArray();
+        return arr;
     }
 }
